@@ -212,6 +212,25 @@ $ docker network ls --no-trunc
 (--no-trunc 옵션은 full network id를 보여준다)
 
 
+
+>>>>>>>>>>>>>>>>>> Docker Image 관련 명령들 >>>>>>>>>>>>>>>>>>
+Command			Description
+docker image build	Dockerfile로부터 이미지 빌드
+docker image history	이미지 히스토리 표시
+docker image import	Import the contents from a tarball to create a filesystem image
+docker image inspect	하나 이상의 이미지에 대한 자세한 정보 표시
+docker image load	tar 아카이브 또는 STDIN에서 이미지로드
+docker image ls		이미지 목록
+docker image prune	사용하지 않은 이미지 제거
+docker image pull	Pull an image or a repository from a registry
+docker image push	Push an image or a repository to a registry
+docker image rm		하나 이상의 이미지 제거
+docker image save	Save one or more images to a tar archive (streamed to STDOUT by default)
+docker image tag	Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+
+
+
+
 >>>>>>>>>>>>>>>>>> Docker Container 관련 명령들 >>>>>>>>>>>>>>>>>>
 Command	              	Description
 docker container attach		로컬 표준 입력, 출력 및 오류 스트림을 실행중인 컨테이너에 연결
