@@ -1,4 +1,4 @@
-▶▶▶ curl, apt-get(apt가 apt-get보다 나중에 나옴), wget, yum(rpm을 개선하기 위해) 차이
+▶▶▶ curl, apt-get(apt가 apt-get보다 나중에 나옴), wget, yum(rpm을 개선하기 위해), dnf 차이
 
 데비안(apt-get)과 레드헷(rpm)의 차이?
 
@@ -149,6 +149,53 @@ wget -t 22 --waitretry=48 --wait=33 --random-wait --referer="" --user-agent="" -
 
 
 
+▶ dnf(YUM 과 비슷한 RPM 기반의 패키지 매니저)
+dnf [options] <command> [<args>...]
+
+dnf alias
+ex) dnf alias [option] [list] [<name>...]    #별명 리스트 나열
+ex) dnf alias [option] add <name=value>...    #별명 생성
+ex) dnf alias [option] delete <name>...    #별명 삭제
+
+# 원래 사용자 설치 패키지의 종속성으로 설치되었지만 더 이상 이러한 패키지에 필요하지 않은 모든 "리프"패키지를 시스템에서 제거합니다.
+dnf [options] autoremove <spec>...
+
+dnf check
+
+# 시스템에 사용할 수 있는 업데이트할 패키지가 있는지 확인(check)합니다. (실제 업데이트는 upgrade 명령으로)
+dnf check-update
+
+# 저장소용으로 보관된 임시 파일 정리를 수행. 여기에는 비활성화되거나 제거 된 리포지토리 및 다른 배포 릴리스 버전에서 남겨진 모든 데이터가 포함됩니다.
+dnf clean
+
+# 명령 도움말
+dnf help [<command>]
+
+# 설치 및 사용 가능한 패키지에 대한 설명 및 요약 정보를 나열합니다.
+dnf [options] info [<apckage-file-spec>...]
+
+# 패키지 설치 (각 <spec>은 <package-spec>, @<module-spec>, @<group-spec> 일 수 있다.)
+dnf [options] install <spec>... 
+
+ex) dnf install tito
+ex) dnf install ~/Downloads/tito-0.6.2-1.fc22.noarch.rpm
+ex) dnf install tito-0.5.6-1.fc22    # 버전을 명시, 이미 있으면 다운그레이드 또는 업그레이드로 지정된 버전으로 설치한다
+ex) dnf --best install tito    # 최신 버전으로 설치, 이미 있으면 자동으로 업그레이드, 이미 최신 버전이면 설치 실패
+
+
+# 각 패키지를 사용 가능하고 해결 가능한 최신 버전으로 업데이트합니다. (package-spec에 버전이 명시되면 그 버전으로 업데이트 한다)
+ex) dnf [options] upgrade
+ex) dnf [options] upgrade <package-spec>...
+
+# 시스템과의 패키지 관계에 따라 패키지 목록을 보여준다. 
+-> RPMDB에 있고 사용 가능하면 installed로 표시되고, 설치되지 않았지만 DNF가 알고있으면 available로 표시된다.
+ex) dnf [options] list [--all] [<package-file-spec>...]    # 모든 패키지 리스트
+ex) dnf [options] list --installed [<package-file-spec>...]    # 설치된 패키지 리스트
+ex) dnf [options] list --available [<package-file-spec>...]    # 사용 가능한 패키지 리스트
+ex) dnf [options] list --upgrades [<package-file-spec>...]    # 업그레이드 가능한 패키지 리스트
+
+# 패키지 삭제
+dnf [options] remove <package-spec>...
 
 
 
